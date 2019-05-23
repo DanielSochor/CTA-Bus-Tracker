@@ -1,20 +1,26 @@
 $(document).ready(function () {
     $(document).on("click", ".button", function () {
-        var stop = $(this).text();
+        $('#results').empty();
+        var stop = $(this).attr('id');
+        console.log(stop);
         var key = "LAVwTT2AWFcz8ZGsJKNngyY4f";
         var CORS = "https://cors-anywhere.herokuapp.com/"
         var queryURL = CORS + "http://ctabustracker.com/bustime/api/v2/getpredictions?key=" + key + "&stpid=" + stop + "&format=json";
         $.ajax({
             url: queryURL,
             method: "GET"
-        }).then(function (response) {
+        }).done(function (response) {
             console.log(response);
             var comingBuses = response['bustime-response'].prd.length;
             console.log('There are ' + comingBuses + ' upcoming buses! They are:')
             for (var i = 0; i < comingBuses; i++) {
-                console.log("Bus "+response['bustime-response'].prd[i].rt+" will arrive in "+response['bustime-response'].prd[i].prdctdn+ " minutes");
+                console.log("Bus " + response['bustime-response'].prd[i].rt + " will arrive in " + response['bustime-response'].prd[i].prdctdn + " minutes");
+                var result = "Bus " + response['bustime-response'].prd[i].rt + " will arrive in " + response['bustime-response'].prd[i].prdctdn + " minutes";
+                $('#results').append('<p>' + result + '</p>');
                 //console.log('Concert ' + (i + 1) + ' is on ' + moment(response.data[i].datetime).format('MMMM Do YYYY') + ' at the ' + response.data[i].venue.name + ' in ' + response.data[i].venue.city + ', ' + response.data[i].venue.country);
             }
+        }).fail(function () {
+            $('#results').append('<p>' + 'No reults found!' + '</p>');
         });
     });
 });
