@@ -20,9 +20,9 @@ $(document).ready(function () {
 function results(response) {
     console.log(response);
     // //if (response['bustime-response'].error[0].msg == "No service scheduled" && response['bustime-response'].error[0].msg == "No arrival times") {
-    // if (response['bustime-response'] != response['bustime-response'].error) {
-    //     $('#results').append('<p>' + 'No reults found!' + '</p>');
-    // } else {
+    if ('error' in response['bustime-response']) {
+        $('#results').append('<p>' + 'No results found!' + '</p>');
+    } else {
         var comingBuses = response['bustime-response'].prd.length;
         console.log('There are ' + comingBuses + ' upcoming buses! They are:')
         for (var i = 0; i < comingBuses; i++) {
@@ -31,7 +31,7 @@ function results(response) {
             $('#results').append('<p>' + result + '</p>');
             //console.log('Concert ' + (i + 1) + ' is on ' + moment(response.data[i].datetime).format('MMMM Do YYYY') + ' at the ' + response.data[i].venue.name + ' in ' + response.data[i].venue.city + ', ' + response.data[i].venue.country);
         }
-    // }
+    }
 }
 
 //67,67,"Jackson & Canal","Jackson & Canal, Eastbound, Southwest Corner",41.877997,-87.639776,0,,1
