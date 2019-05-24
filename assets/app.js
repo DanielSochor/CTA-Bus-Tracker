@@ -37,6 +37,9 @@ function results(response) {
 //67,67,"Jackson & Canal","Jackson & Canal, Eastbound, Southwest Corner",41.877997,-87.639776,0,,1
 //1417,1417,"LaSalle & Oak","LaSalle & Oak, Southbound, Southwest Corner",41.900327,-87.632942,0,,1
 //1127,1127,"Michigan & Chestnut","Michigan & Chestnut, Northbound, Southeast Corner",41.898069,-87.62396,0,,1
+//68,68,"Jackson & Franklin","Jackson & Franklin, Eastbound, Southwest Corner",41.878051,-87.635401,0,,1
+//14061,14061,"LaSalle & Quincy","LaSalle & Quincy, Northbound, Southeast Corner",41.87872446,-87.63216611,0,,1
+//4973,4973,"LaSalle & Madison","LaSalle & Madison, Northbound, Southeast Corner",41.881838,-87.632265,0,,1
 
 //try this 24 bus:
 //14161,14161,"Navy Pier Terminal","Navy Pier Terminal, Northbound, Bus Terminal",41.89232851,-87.6101389,0,,1
